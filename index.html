@@ -7,7 +7,7 @@
 <style>
 body {
   margin: 0;
-  font-family: 'Arial', sans-serif;
+  font-family: Arial, sans-serif;
   text-align: center;
   background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #ff758c, #ff7eb3);
   background-size: 400% 400%;
@@ -17,7 +17,6 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  overflow: hidden;
 }
 
 @keyframes gradient {
@@ -27,18 +26,19 @@ body {
 }
 
 .container {
-  max-width: 400px;
+  max-width: 420px;
   padding: 20px;
 }
 
+/* 🔥 IMPORTANTE: ahora no se cortan */
 img {
   width: 100%;
-  max-height: 320px;
-  object-fit: cover;
+  max-height: 350px;
+  object-fit: contain; /* antes era cover */
   border-radius: 25px;
   margin-bottom: 20px;
   box-shadow: 0 0 30px rgba(255,255,255,0.6);
-  transition: 0.5s;
+  transition: 0.4s ease;
 }
 
 h1 {
