@@ -1,93 +1,6 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
-<title>Mi Amorcito 💛</title>
-
-<style>
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  text-align: center;
-  background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #ff758c, #ff7eb3);
-  background-size: 400% 400%;
-  animation: gradient 10s ease infinite;
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-}
-
-@keyframes gradient {
-  0% {background-position: 0% 50%;}
-  50% {background-position: 100% 50%;}
-  100% {background-position: 0% 50%;}
-}
-
-.container {
-  max-width: 420px;
-  padding: 20px;
-}
-
-/* 🔥 IMPORTANTE: ahora no se cortan */
-img {
-  width: 100%;
-  max-height: 350px;
-  object-fit: contain; /* antes era cover */
-  border-radius: 25px;
-  margin-bottom: 20px;
-  box-shadow: 0 0 30px rgba(255,255,255,0.6);
-  transition: 0.4s ease;
-}
-
-h1 {
-  font-size: 26px;
-  margin-bottom: 20px;
-  text-shadow: 0 0 15px rgba(255,255,255,0.8);
-}
-
-button {
-  padding: 12px 25px;
-  font-size: 18px;
-  border: none;
-  border-radius: 30px;
-  cursor: pointer;
-  margin: 10px;
-  transition: 0.3s;
-}
-
-.yes {
-  background: #00ffcc;
-  color: black;
-}
-
-.no {
-  background: #ff3366;
-  color: white;
-}
-
-button:hover {
-  transform: scale(1.1);
-}
-</style>
-</head>
-
-<body>
-
-<audio autoplay loop>
-  <source src="musica.mp3" type="audio/mpeg">
-</audio>
-
-<div class="container" id="content">
-  <img src="foto1.jpg" id="imagen">
-  <h1 id="pregunta">¿Quieres ser mi San Valentín?</h1>
-  <button class="yes" onclick="siguiente()">Sí 💖</button>
-  <button class="no" onclick="alert('Piénsalo otra vez 😏')">No</button>
-</div>
-
 <script>
 let paso = 0;
+let musicaIniciada = false;
 
 const preguntas = [
   {
@@ -105,6 +18,13 @@ const preguntas = [
 ];
 
 function siguiente() {
+
+  // 🔊 Inicia música en el primer click
+  if (!musicaIniciada) {
+    document.getElementById("musica").play();
+    musicaIniciada = true;
+  }
+
   if (paso < preguntas.length) {
     document.getElementById("pregunta").innerText = preguntas[paso].texto;
     document.getElementById("imagen").src = preguntas[paso].imagen;
@@ -117,6 +37,3 @@ function siguiente() {
   }
 }
 </script>
-
-</body>
-</html>
