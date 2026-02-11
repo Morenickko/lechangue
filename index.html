@@ -1,3 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mi amorcito 💖</title>
+
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #e8b7ad;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+#content {
+  padding: 30px 20px;
+}
+
+h1 {
+  color: white;
+  font-size: 28px;
+  margin-top: 30px;
+}
+
+img {
+  width: 90%;
+  max-width: 500px;
+  border-radius: 25px;
+  margin-top: 30px;
+}
+
+button {
+  margin-top: 30px;
+  padding: 12px 30px;
+  font-size: 18px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  background-color: white;
+  color: #e08c84;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.1);
+}
+</style>
+</head>
+
+<body>
+
+<div id="content">
+  <img id="imagen" src="foto1.jpg">
+  <h1 id="pregunta">¿Quieres ser mi San Valentín? 💌</h1>
+  <button onclick="siguiente()">Sí 💖</button>
+</div>
+
+<audio id="musica" loop>
+  <source src="musica.mp3" type="audio/mpeg">
+</audio>
+
 <script>
 let paso = 0;
 let musicaIniciada = false;
@@ -19,7 +83,7 @@ const preguntas = [
 
 function siguiente() {
 
-  // 🔊 Inicia música en el primer click
+  // Iniciar música en el primer click
   if (!musicaIniciada) {
     document.getElementById("musica").play();
     musicaIniciada = true;
@@ -31,9 +95,12 @@ function siguiente() {
     paso++;
   } else {
     document.getElementById("content").innerHTML = `
-      <img src="foto.jpg">
+      <img src="foto.jpg" style="width:90%; max-width:500px; border-radius:25px; margin-top:30px;">
       <h1>Gracias por seguir compartiendo lindos momentos juntitos ❤️</h1>
     `;
   }
 }
 </script>
+
+</body>
+</html>
